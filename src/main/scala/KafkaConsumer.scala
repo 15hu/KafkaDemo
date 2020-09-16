@@ -1,6 +1,9 @@
 import java.util
 import java.util.Properties
+
+import com.typesafe.config.ConfigFactory
 import org.apache.kafka.clients.consumer.{ConsumerConfig, KafkaConsumer}
+
 import scala.collection.JavaConverters._
 
 object KafkaConsumer {
@@ -9,8 +12,9 @@ object KafkaConsumer {
   }
 
   def consumeMessage(topic: String): Unit ={
+    val server = ConfigFactory.load().getString("kafka.bootstrap.server")
     val props = new Properties()
-    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
+    props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, server)
     props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
