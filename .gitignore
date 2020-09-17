@@ -1,3 +1,23 @@
+*.class
+*.log
+
+bin/
+project/project/
+project/target/
+target/
+build/
+logs/
+
+*.iml
+*.ipr
+*.iws
 .idea
-project/target
-target
+
+# mac
+.DS_Store
+
+# other?
+.history
+.scala_dependencies
+.cache
+.cache-main
