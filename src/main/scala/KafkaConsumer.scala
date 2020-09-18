@@ -18,7 +18,7 @@ object KafkaConsumer {
     props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
     props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
     props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer")
-    props.put(ConsumerConfig.GROUP_ID_CONFIG, "1")
+    props.put(ConsumerConfig.GROUP_ID_CONFIG, "group")
 
     val consumer = new KafkaConsumer[String,String](props)
     consumer.subscribe(util.Arrays.asList(topic))

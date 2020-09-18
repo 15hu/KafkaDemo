@@ -7,7 +7,7 @@ import org.apache.spark.streaming.kafka010.{ConsumerStrategies, KafkaUtils, Loca
 object KafkaSparkConsumer {
   def main(args : Array[String]): Unit ={
     val brokerId = "localhost:9092"
-    val groupId = "newGroup"
+    val groupId = "group"
     val topics = "first-topic"
     val topicSet = topics.split(",").toSet
     val kafkaParams = Map[String,Object](
